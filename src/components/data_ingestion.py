@@ -22,7 +22,7 @@ class DataIngestion:
      def __init__(self):
           self.ingestion_config= DataIngestionConfig()
         
-     def initciate_data_ingestion(self):
+     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method or component.")
         try:
             df= pd.read_csv('notebook\data\stud.csv')
@@ -47,11 +47,12 @@ class DataIngestion:
         
 if __name__=='__main__':
     obj= DataIngestion()
-    train_data, test_data= obj.initciate_data_ingestion()    
+    train_data, test_data= obj.initiate_data_ingestion()    
 
     data_transformation = DataTransformation()
     train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data, test_data)
 
     modeltrainer= ModelTrainer()
+    
     print(modeltrainer.initiate_model_trainer(train_arr, test_arr))
 
